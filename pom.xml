@@ -24,20 +24,11 @@
       <artifactId>junit</artifactId>
       <version>4.12</version>
       <scope>test</scope>
-
     </dependency>
 
 
   </dependencies>
   <build>
-    <finalName>spring-rest</finalName>
-    <!--<resources>-->
-    <!--<resource>-->
-    <!--<directory>src/main</directory>-->
-    <!--<filtering>true</filtering>-->
-    <!--</resource>-->
-    <!--</resources>-->
-
     <plugins>
       <plugin>
         <groupId>org.jacoco</groupId>
@@ -79,25 +70,25 @@
             </configuration>
           </execution>
         </executions>
-
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.0.0</version>
-        <configuration>
-          <encoding>UTF-8</encoding>
-        </configuration>
+        <version>3.1.0</version>
         <executions>
           <execution>
-            <phase>validate</phase>
+            <id>check</id>
+            <phase>compile</phase>
             <goals>
               <goal>check</goal>
             </goals>
             <configuration>
               <configLocation>config/check-style.xml</configLocation>
-              <consoleOutput>true</consoleOutput>
               <failsOnError>true</failsOnError>
+              <encoding>UTF-8</encoding>
+              <consoleOutput>true</consoleOutput>
+              <maxAllowedViolations>0</maxAllowedViolations>
             </configuration>
           </execution>
         </executions>
