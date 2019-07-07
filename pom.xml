@@ -79,7 +79,7 @@
         <executions>
           <execution>
             <id>check</id>
-            <phase>compile</phase>
+            <phase>process-resources</phase>
             <goals>
               <goal>check</goal>
             </goals>
