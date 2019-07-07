@@ -8,30 +8,30 @@ public class StringUtils {
         this.value = value;
     }
 
-    public boolean isEmpty(final CharSequence cs) {
-        return cs == null || cs.length() == 0;
+    public boolean isEmpty(final CharSequence charSequence) {
+        return charSequence == null || charSequence.length() == 0;
     }
 
-    public boolean isBlank(final CharSequence cs) {
+    public boolean isBlank(final CharSequence charSequence) {
         int strLen;
-        if (cs == null || (strLen = cs.length()) == 0) {
+        if (charSequence == null || (strLen = charSequence.length()) == 0) {
             return true;
         }
         for (int i = 0; i < strLen; i++) {
-            if (!Character.isWhitespace(cs.charAt(i))) {
+            if (!Character.isWhitespace(charSequence.charAt(i))) {
                 return false;
             }
         }
         return true;
     }
 
-    public boolean isAlpha(final CharSequence cs) {
-        if (isEmpty(cs)) {
+    public boolean isAlpha(final CharSequence charSequence) {
+        if (isEmpty(charSequence)) {
             return false;
         }
-        final int sz = cs.length();
+        final int sz = charSequence.length();
         for (int i = 0; i < sz; i++) {
-            if (!Character.isLetter(cs.charAt(i))) {
+            if (!Character.isLetter(charSequence.charAt(i))) {
                 return false;
             }
         }

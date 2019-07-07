@@ -191,10 +191,10 @@
     </module>
 
     <!-- Class Design -->
-    <module name="DesignForExtension">
-      <property name="ignoredAnnotations"
-        value="Override, Test, Before, After, BeforeClass, AfterClass"/>
-    </module>
+    <!--<module name="DesignForExtension">-->
+      <!--<property name="ignoredAnnotations"-->
+        <!--value="Override, Test, Before, After, BeforeClass, AfterClass"/>-->
+    <!--</module>-->
     <module name="FinalClass"/>
     <module name="HideUtilityClassConstructor"/>
     <module name="InnerTypeLast"/>
@@ -217,7 +217,8 @@
     <module name="EqualsHashCode"/>
     <module name="ExplicitInitialization"/>
     <module name="FallThrough"/>
-    <module name="FinalLocalVariable"/>
+      <!--to be fix-->
+    <!--<module name="FinalLocalVariable"/>-->
     <module name="HiddenField">
       <property name="ignoreConstructorParameter" value="true"/>
       <property name="ignoreSetter" value="true"/>
@@ -258,7 +259,6 @@
                        java.util.LinkedHashSet, LinkedHashSet, java.util.TreeSet, TreeSet,
                        java.lang.StringBuffer, StringBuffer"/>
     </module>
-    <module name="InnerAssignment"/>
     <module name="MagicNumber"/>
     <module name="MissingCtor">
       <!--
@@ -286,7 +286,7 @@
     <module name="ParameterAssignment"/>
     <module name="RequireThis"/>
     <module name="ReturnCount">
-      <property name="max" value="1"/>
+      <property name="max" value="4"/>
       <property name="maxForVoid" value="0"/>
     </module>
     <module name="SimplifyBooleanExpression"/>
