@@ -191,10 +191,6 @@
     </module>
 
     <!-- Class Design -->
-    <!--<module name="DesignForExtension">-->
-      <!--<property name="ignoredAnnotations"-->
-        <!--value="Override, Test, Before, After, BeforeClass, AfterClass"/>-->
-    <!--</module>-->
     <module name="FinalClass"/>
     <module name="HideUtilityClassConstructor"/>
     <module name="InnerTypeLast"/>
@@ -337,21 +333,8 @@
     <!-- Imports -->
     <module name="AvoidStarImport"/>
     <module name="AvoidStaticImport"/>
-    <module name="CustomImportOrder">
-      <property name="customImportOrderRules"
-        value="STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS"/>
-      <property name="specialImportsRegExp" value="^org\."/>
-      <property name="sortImportsInGroupAlphabetically" value="true"/>
-      <property name="separateLineBetweenGroups" value="true"/>
-    </module>
     <module name="IllegalImport"/>
-    <module name="ImportOrder">
-      <property name="groups" value="/^java\./,javax,org"/>
-      <property name="ordered" value="true"/>
-      <property name="separated" value="true"/>
-      <property name="option" value="top"/>
-      <property name="sortStaticImportsAlphabetically" value="true"/>
-    </module>
+
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
 
@@ -396,7 +379,8 @@
     <module name="MemberName">
       <property name="format" value="^(id)|([a-z][a-z0-9][a-zA-Z0-9]+)$"/>
     </module>
-    <module name="MethodName"/>
+    <!--<module name="MethodName">-->
+    <!--</module>-->
     <module name="MethodTypeParameterName"/>
     <module name="PackageName"/>
     <module name="ParameterName">
