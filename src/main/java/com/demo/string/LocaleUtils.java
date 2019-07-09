@@ -62,16 +62,17 @@ public class LocaleUtils {
         boolean iso639LanguageCode = isIso639LanguageCode(language);
         if (segments.length == 2) {
             final String country = segments[1];
-            if (iso639LanguageCode && isIso3166CountryCode(country)
-                    || isNumericAreaCode(country)) {
+            boolean iso3166CountryCode = isIso3166CountryCode(country);
+            if (iso639LanguageCode && iso3166CountryCode || isNumericAreaCode(country)) {
                 return new Locale(language, country);
             }
         } else if (segments.length == THREE) {
             final String country = segments[1];
             final String variant = segments[2];
-            if (iso639LanguageCode && (country.length() == 0
-                    || isIso3166CountryCode(country) || isNumericAreaCode(country))
-                    && variant.length() > 0) {
+            boolean iso3166CountryCode = isIso3166CountryCode(country);
+            boolean isCurrentCountry = country.length() == 0 || iso3166CountryCode
+                    || isNumericAreaCode(country);
+            if (iso639LanguageCode && isCurrentCountry && variant.length() > 0) {
                 return new Locale(language, country, variant);
             }
         }

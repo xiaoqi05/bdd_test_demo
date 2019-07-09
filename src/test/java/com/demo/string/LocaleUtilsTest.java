@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LocaleUtilsTest {
 
-    private static final Locale LOCALE_EN = new Locale("EN", "");
+    private static final Locale LOCALE_EN = new Locale("en", "");
     private static final Locale LOCALE_EN_US = new Locale("en", "US");
     private static final Locale LOCALE_EN_US_ZZZZ = new Locale("en", "US", "ZZZZ");
     private static final Locale LOCALE_FR = new Locale("fr", "");
@@ -126,6 +126,61 @@ public class LocaleUtilsTest {
         Locale locale = localeUtils.toLocale(inputStr);
         //then
         assertThat(locale).isEqualTo(localeEn);
+    }
+
+    @Test
+    public void should_get_local_for_iso639_language_code() {
+        //given
+        String inputStr = "en";
+        //when
+        Locale locale = localeUtils.toLocale(inputStr);
+        //then
+        assertThat(locale).isEqualTo(Locale.ENGLISH);
+    }
+
+    @Test
+    public void should_get_local_for_iso639_language_code_with_alpha_3() {
+        //given
+        String inputStr = "ens";
+        Locale expected = new Locale(inputStr);
+        //when
+        Locale locale = localeUtils.toLocale(inputStr);
+        //then
+        assertThat(locale).isEqualTo(expected);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_country_not_uppercase() {
+        //given
+        //when
+        localeUtils.toLocale("en_Us");
+        //then
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_language_not_uppercase() {
+        //given
+        //when
+        localeUtils.toLocale("EN_us");
+        //then
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_not_underscore() {
+        //given
+        //when
+        localeUtils.toLocale("en-Us");
+        //then
+    }
+
+    @Test
+    public void should_get_locale_for_numeric_area_code_country() {
+        //given
+        Locale numericAreaCodeLocale = new Locale("en", "490");
+        //when
+        Locale locale = localeUtils.toLocale("en_490");
+        //then
+        assertThat(locale).isEqualTo(numericAreaCodeLocale);
     }
 
 }
