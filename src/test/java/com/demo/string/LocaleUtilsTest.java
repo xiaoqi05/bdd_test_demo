@@ -82,7 +82,7 @@ public class LocaleUtilsTest {
     @Test (expected = IllegalArgumentException.class)
     public void should_throw_exception_for_special_str_length_above_4_and_start_with_underlined() {
         //given
-        String fourLengthStr = "_AAaa";
+        String fourLengthStr = "_AAA";
         //when
         localeUtils.toLocale(fourLengthStr);
         //then
@@ -107,10 +107,21 @@ public class LocaleUtilsTest {
     }
 
     @Test
-    public void should_get_locale_for_alpha_3_language_code() {
+    public void should_get_locale_for_alpha_3_language_code_and_start_with_underlined() {
         //given
         String inputStr = "_EN";
         Locale localeEn = new Locale("", "EN");
+        //when
+        Locale locale = localeUtils.toLocale(inputStr);
+        //then
+        assertThat(locale).isEqualTo(localeEn);
+    }
+
+    @Test
+    public void should_get_locale_for_with_two_part() {
+        //given
+        String inputStr = "_EN_US";
+        Locale localeEn = new Locale("", "EN", "US");
         //when
         Locale locale = localeUtils.toLocale(inputStr);
         //then
