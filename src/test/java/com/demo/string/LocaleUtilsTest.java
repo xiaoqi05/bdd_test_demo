@@ -158,6 +158,14 @@ public class LocaleUtilsTest {
     }
 
     @Test (expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_country_not_uppercase_with_empty_variant() {
+        //given
+        //when
+        localeUtils.toLocale("en_CA_");
+        //then
+    }
+
+    @Test (expected = IllegalArgumentException.class)
     public void should_throw_exception_for_language_not_uppercase() {
         //given
         //when
@@ -181,6 +189,16 @@ public class LocaleUtilsTest {
         Locale locale = localeUtils.toLocale("en_490");
         //then
         assertThat(locale).isEqualTo(numericAreaCodeLocale);
+    }
+
+    @Test
+    public void should_get_locale_for_iso3166_country_code_and_variant() {
+        //given
+        Locale iso3166Locale = new Locale("en", "CA", "CB");
+        //when
+        Locale locale = localeUtils.toLocale("en_CA_CB");
+        //then
+        assertThat(locale).isEqualTo(iso3166Locale);
     }
 
 }
