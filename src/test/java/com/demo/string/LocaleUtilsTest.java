@@ -73,7 +73,7 @@ public class LocaleUtilsTest {
     @Test (expected = IllegalArgumentException.class)
     public void should_throw_exception_when_input_str_length_equal_4_and_start_with_underlined() {
         //given
-        String fourLengthStr = "_123";
+        String fourLengthStr = "_AAA";
         //when
         localeUtils.toLocale(fourLengthStr);
         //then
@@ -82,7 +82,7 @@ public class LocaleUtilsTest {
     @Test (expected = IllegalArgumentException.class)
     public void should_throw_exception_for_special_str_length_above_4_and_start_with_underlined() {
         //given
-        String fourLengthStr = "_AAA";
+        String fourLengthStr = "_AAaa";
         //when
         localeUtils.toLocale(fourLengthStr);
         //then
