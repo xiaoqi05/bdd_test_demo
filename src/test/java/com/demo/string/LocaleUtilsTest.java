@@ -8,14 +8,6 @@ import java.util.Locale;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LocaleUtilsTest {
-
-    private static final Locale LOCALE_EN = new Locale("en", "");
-    private static final Locale LOCALE_EN_US = new Locale("en", "US");
-    private static final Locale LOCALE_EN_US_ZZZZ = new Locale("en", "US", "ZZZZ");
-    private static final Locale LOCALE_FR = new Locale("fr", "");
-    private static final Locale LOCALE_FR_CA = new Locale("fr", "CA");
-    private static final Locale LOCALE_QQ = new Locale("qq", "");
-    private static final Locale LOCALE_QQ_ZZ = new Locale("qq", "ZZ");
     private LocaleUtils localeUtils;
 
     @Before
